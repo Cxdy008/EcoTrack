@@ -151,21 +151,24 @@ classDiagram
     }
 
     %% RELACIONAMENTOS
+    
     Employee --> Account : has
-    Employee --> EmployeePhone : "1:N"
-    Account --> AccountRole : "1:N"
-    Role --> AccountRole : "1:N"
-
+    Employee --> EmployeePhone : 1..*
+    Account --> AccountRole : 1..*
+    Role --> AccountRole : 1..*
+    
     Truck --> TruckModel : belongs_to
     Collection --> Truck : uses
-    Collection --> CollectionEmployee : "1:N"
+    
+    Collection --> CollectionEmployee : 1..*
     Employee --> CollectionEmployee : participates_in
-    Collection --> CollectionConsumption : "1:N"
-    Collection --> CollectionPointCollections : "1:N"
-    CollectionPoint --> CollectionPointCollections : "1:N"
-
+    
+    Collection --> CollectionConsumption : 1..*
+    Collection --> CollectionPointCollections : 1..*
+    CollectionPoint --> CollectionPointCollections : 1..*
+    
     CollectionPoint --> Zone : belongs_to
     Zone --> City : belongs_to
-
-    Route --> RouteCollectionPoint : "1:N"
-    CollectionPoint --> RouteCollectionPoint : "1:N"
+    
+    Route --> RouteCollectionPoint : 1..*
+    CollectionPoint --> RouteCollectionPoint : 1..*
